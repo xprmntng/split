@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
         return 1;
     }
     const std::string version_string = argv[1];
-    const auto result = split_into<u32>(version_string, ',');
+    const auto result = split_into<u32>(version_string, '.');
     if (!result) {
         std::cout << result.error() << std::endl;
         return 1;
