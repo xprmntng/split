@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
         std::cout << result.error() << std::endl;
         return 1;
     }
-    const auto pieces = *result;
+    const auto& pieces = *result;
     for (const auto& piece : pieces) {
         std::cout << piece << " ";
     }
