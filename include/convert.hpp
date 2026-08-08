@@ -9,6 +9,7 @@
 namespace convert {
 
     template <typename T>
+    requires std::integral<T> || std::floating_point<T>
     std::expected<T, std::string> from_string(std::string str) {
         T out;
         const char* start = str.data();
@@ -21,5 +22,4 @@ namespace convert {
         }
         return out;
     }
-
-};
+}
