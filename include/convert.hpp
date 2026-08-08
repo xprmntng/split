@@ -1,6 +1,7 @@
 #pragma once
 
 #include <expected>
+#include <format>
 #include <string>
 #include <charconv>
 
@@ -18,7 +19,9 @@ namespace convert {
         bool value_found = ec == std::errc();
         bool entire_string_consumed = ptr == end;
         if (!value_found || !entire_string_consumed) {
-            return std::unexpected("String `" + str + "` could not be converted to " + types::get_type_name<T>());
+            return std::unexpected(std::format(
+                "\"{}\" could not be converted to {}", str, types::get_type_name<T>()
+            ));
         }
         return out;
     }
